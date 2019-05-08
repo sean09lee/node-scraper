@@ -1,0 +1,22 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "Pulls the HTML of the homepage of any 10 websites and saves them to separate files locally",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sean09lee/node-scraper.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Sean Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sean09lee/node-scraper/issues"
+  },
+  "homepage": "https://github.com/sean09lee/node-scraper#readme"
+}
