@@ -1,6 +1,6 @@
 # node-scraper
 
-**Assignment**
+**Node Assignment**
 * Create a new repo and push to any public service using git
 * In the master branch
     * Initialize a new node.js application
@@ -11,6 +11,15 @@
         * Add to the existing application and make the application into a REST service
 
 The service should be able to run locally and tested via some tool like `CURL`.
+
+**Angular Assignment**
+
+Angular 2+
+
+* Create a new branch
+	* Create an Angular application as an interface to specify which 10 websites the user wants to scrape the HTML from.
+
+This should be runnable locally via a web browser, and should consume the REST service previously created. 
 
 ## Running locally
 
