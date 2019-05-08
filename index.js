@@ -1,6 +1,9 @@
 var request = require('request')
 const express = require('express')
 const https = require('https')
+const fs = require('fs')
+const url = require("url");
+const path = require("path");
 const app = express()
 const port = 3000
 
@@ -10,17 +13,18 @@ const sites = [
     'https://www.google.com',
     'https://www.microsoft.com/en-us/',
 ];
+const dir = `${__dirname}/sites`;
 
 // use request package or base https
-const useRequest = true;
+const useRequest = false;
 
 // iterate over each site and console log the html
 sites.forEach((site) => {
     if (useRequest) {
         request({uri: site}, 
             function(error, response, body) {
-            console.log(body);
-        });
+                writeToFile(body, site);
+            });
     } else {
         https.get(site, (resp) => {
             let data = '';
@@ -32,11 +36,33 @@ sites.forEach((site) => {
 
             // The whole response has been received. Print out the result.
             resp.on('end', () => {
-                console.log(site);
-                console.log(data);
+                writeToFile(data, site);
             });
         }).on("error", (err) => {
             console.log("Error: " + err.message);
         });        
     }
 })
+
+function writeToFile(content, site) {
+    createSubFolder();
+    const file = createFileName(site);
+    fs.writeFile(`${dir}/${file}.html`, content, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    
+        console.log(`File ${file}.html saved successfully...`);
+    }); 
+}
+
+function createSubFolder() {
+    if (!fs.existsSync(dir)) {
+        console.log(`creating directory ${dir}...`)
+        fs.mkdirSync(dir);
+    }
+}
+
+function createFileName(site) {
+    return url.parse(site).hostname;
+}
