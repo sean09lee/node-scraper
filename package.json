@@ -4,6 +4,7 @@
   "description": "Pulls the HTML of the homepage of any 10 websites and saves them to separate files locally",
   "main": "index.js",
   "scripts": {
+    "custom": "node index.js",
     "test": "test"
   },
   "repository": {
@@ -18,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/sean09lee/node-scraper/issues"
   },
-  "homepage": "https://github.com/sean09lee/node-scraper#readme"
+  "homepage": "https://github.com/sean09lee/node-scraper#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "node-fetch": "^2.5.0",
+    "request": "^2.88.0"
+  }
 }

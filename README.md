@@ -14,4 +14,4 @@ The service should be able to run locally and tested via some tool like `CURL`.
 
 ## Running locally
 
-This project runs off of node and npm. First `npm install`, then `npm start`
+This project runs off of node and npm. If this is your first time running this app, run `npm install`, then `npm run custom`.
