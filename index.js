@@ -12,6 +12,13 @@ const sites = [
     'https://www.sitepoint.com',
     'https://www.google.com',
     'https://www.microsoft.com/en-us/',
+    'https://firebase.google.com/',
+    'https://www.agency73.com/',
+    'https://nodejs.org/en/',
+    'https://www.chess.com/',
+    'https://material.io/',
+    'https://swagger.io/',
+    'https://developers.google.com/web/tools/lighthouse/'
 ];
 const dir = `${__dirname}/sites`;
 
