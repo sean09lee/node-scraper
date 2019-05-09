@@ -23,4 +23,8 @@ This should be runnable locally via a web browser, and should consume the REST s
 
 ## Running locally
 
-This project runs off of node and npm. If this is your first time running this app, run `npm install`, then `npm run custom`.
+This project runs off of node and npm. If this is your first time running this app, run `npm install`.
+
+Then run `npm start`.
+
+Then navigate to http://localhost:3000
