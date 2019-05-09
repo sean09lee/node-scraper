@@ -22,11 +22,10 @@ export class FileService {
       const body = {"site": site};
       this.httpClient.post(endpoint, body)
         .toPromise()
-        .then((response) => {
-          if (response) {
+        .then((response: any) => {
+          if (response && response.response === 'success') {
             this.successSubject.next(true);
           } else {
-            
             this.successSubject.next(false);
           }
         })

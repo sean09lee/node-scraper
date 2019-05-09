@@ -20,7 +20,7 @@ export class SiteFormComponent implements OnInit {
     this.fileService.success.pipe(skip(1)).subscribe((success: boolean) => {
       const status: string = success ? 'success' : 'failed';
       const message = `File download ${status}`;
-      this.openSnackBar(message);
+      this.openSnackBar(message, status);
     })
   }
 
@@ -46,9 +46,10 @@ export class SiteFormComponent implements OnInit {
     });
   }
 
-  private openSnackBar(message: string) {
+  private openSnackBar(message: string, status: string) {
     this.snackBar.open(message, '', {
-      duration: 2000,
+      duration: 20000,
+      panelClass: status
     });
   }
 }

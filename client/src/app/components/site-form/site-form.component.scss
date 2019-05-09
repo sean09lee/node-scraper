@@ -40,3 +40,13 @@
 .unavailable {
     color: red;
 }
+
+/deep/ .success {
+    background-color: green;
+    color: white;
+}
+
+/deep/ .failed {
+    background-color: red;
+    color: white;
+}
