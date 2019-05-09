@@ -19,7 +19,7 @@ export class SiteFormComponent implements OnInit {
     this.fileService.success.subscribe((success: boolean) => {
       const status: string = success ? 'success' : 'failed';
       const message = `File download ${status}`;
-      this.openSnackBar(message)
+      this.openSnackBar(message);
     })
   }
 
@@ -28,6 +28,14 @@ export class SiteFormComponent implements OnInit {
 
   public trackByIndex(index: number, obj: any): any {
     return index;
+  }
+
+  public add() {
+    this.sites.push('');
+  }
+
+  public remove(index: number) {
+    this.sites.splice(index, 1);
   }
 
   public download() {

@@ -1,13 +1,25 @@
 .site-form {
     display: flex;
     width: 100%;
-    height: 80%;
+    min-height: 80%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
     .w-80 {
         width: 80%;
+
+        /deep/ .mat-form-field-suffix {
+            display: flex !important;
+        }
+
+        .add {
+            color: green;
+        }
+
+        .remove {
+            color: red;
+        }
     }
 
     .download {
