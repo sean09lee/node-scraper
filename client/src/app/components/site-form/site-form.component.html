@@ -1,7 +1,7 @@
 <div class="site-form">
   <mat-form-field appearance="standard" class="w-80" *ngFor="let site of sites;let index = index;trackBy:trackByIndex;">
     <mat-label>Website address</mat-label>
-    <input matInput placeholder="http://wwww.google.com" [(ngModel)]="sites[index]">
+    <input matInput placeholder="https://wwww.google.com" [(ngModel)]="sites[index]">
     <button mat-button matSuffix mat-icon-button aria-label="add" class="add" (click)="add(index)">
       <mat-icon>add_circle</mat-icon>
     </button>
