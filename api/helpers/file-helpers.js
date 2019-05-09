@@ -7,7 +7,7 @@ const dir = `${__dirname}/sites`;
 module.exports = {
     getSiteHtml: function(useRequest, site) {
         if (useRequest) {
-            request({uri: site}, 
+            return request({uri: site}, 
                 (error, response, body) => {
                     if (error) {
                         console.log(error);
@@ -18,7 +18,7 @@ module.exports = {
                     return true;
                 });
         } else {
-            https.get(site, (resp) => {
+            return https.get(site, (resp) => {
                 let data = '';
             
                 // A chunk of data has been recieved.
