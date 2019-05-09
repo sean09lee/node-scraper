@@ -12,7 +12,7 @@
 
 The service should be able to run locally and tested via some tool like `CURL`.
 
-See the api [README](./api/README.md) for more
+See the api [README](./api/README.md) for more.
 
 **Angular Assignment**
 
@@ -21,4 +21,6 @@ Angular 2+
 * Create a new branch
 	* Create an Angular application as an interface to specify which 10 websites the user wants to scrape the HTML from.
 
-This should be runnable locally via a web browser, and should consume the REST service previously created. 
+This should be runnable locally via a web browser, and should consume the REST service previously created.
+
+See the api [README](./client/README.md) for more.
