@@ -8,7 +8,12 @@ module.exports = {
     getSiteHtml: function(useRequest, site) {
         if (useRequest) {
             request({uri: site}, 
-                function(error, response, body) {
+                (error, response, body) => {
+                    if (error) {
+                        console.log(error);
+                        return false;
+                    }
+
                     writeToFile(body, site);
                     return true;
                 });
