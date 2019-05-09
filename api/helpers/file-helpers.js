@@ -2,39 +2,43 @@ const fs = require('fs')
 const url = require("url");
 const request = require('request')
 const https = require('https')
-const dir = `${__dirname}/sites`;
+const dir = `../sites`;
 
 module.exports = {
     getSiteHtml: function(useRequest, site) {
         if (useRequest) {
-            return request({uri: site}, 
-                (error, response, body) => {
-                    if (error) {
-                        console.log(error);
-                        return false;
-                    }
+            return new Promise(function(resolve, reject){
+                request({uri: site}, 
+                    (error, response, body) => {
+                        if (error) {
+                            reject(error);
+                            return;
+                        }
 
-                    writeToFile(body, site);
-                    return true;
-                });
+                        writeToFile(body, site);
+                        resolve(true);
+                    });
+            });
         } else {
-            return https.get(site, (resp) => {
-                let data = '';
-            
-                // A chunk of data has been recieved.
-                resp.on('data', (chunk) => {
-                    data += chunk;
-                });
-            
-                // The whole response has been received. Print out the result.
-                resp.on('end', () => {
-                    writeToFile(data, site);
-                    return true;
-                });
-            }).on("error", (err) => {
-                console.log("Error: " + err.message);
-                return false;
-            });           
+            return new Promise((resolve, reject) => {
+                https.get(site, (resp) => {
+                    let data = '';
+                
+                    // A chunk of data has been recieved.
+                    resp.on('data', (chunk) => {
+                        data += chunk;
+                    });
+                
+                    // The whole response has been received. Print out the result.
+                    resp.on('end', () => {
+                        writeToFile(data, site);
+                        resolve(true);
+                    });
+                }).on("error", (err) => {
+                    console.log("Error: " + err.message);
+                    reject(err);
+                });   
+            });
         }
     }
 }

@@ -12,8 +12,11 @@ router.get('/:site', function(req, res, next) {
 // POST file 
 router.post('/', function (req, res, next) {
   const site = req.body.site;  
-  const success = helper.getSiteHtml(true, site);
-  res.send({"response": success});
+  helper.getSiteHtml(true, site).then(() => {
+    res.send({"response": "success"});
+  }).catch(() => {
+    res.send({"response": "error"});
+  });
 });
 
 module.exports = router;
