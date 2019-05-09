@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileService } from 'src/app/services/file.service';
 import {MatSnackBar} from '@angular/material';
+import { skip } from 'rxjs/operators';
 
 @Component({
   selector: 'app-site-form',
@@ -16,7 +17,7 @@ export class SiteFormComponent implements OnInit {
       this.saving = saving;
     })
 
-    this.fileService.success.subscribe((success: boolean) => {
+    this.fileService.success.pipe(skip(1)).subscribe((success: boolean) => {
       const status: string = success ? 'success' : 'failed';
       const message = `File download ${status}`;
       this.openSnackBar(message);
