@@ -2,10 +2,16 @@
   <mat-form-field appearance="standard" class="w-80" *ngFor="let site of sites;let index = index;trackBy:trackByIndex;">
     <mat-label>Website address</mat-label>
     <input matInput placeholder="http://wwww.google.com" [(ngModel)]="sites[index]">
+    <button mat-button matSuffix mat-icon-button aria-label="add" class="add" (click)="add(index)">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+    <button mat-button *ngIf="index != 0 && sites.length > 1" matSuffix mat-icon-button aria-label="remove" class="remove" (click)="remove(index)">
+      <mat-icon>remove_circle</mat-icon>
+    </button>
     <mat-hint>Enter a website address</mat-hint>
   </mat-form-field>
   <div class="spinner-container center" *ngIf="saving">
     <mat-spinner class="spinner"></mat-spinner>
   </div>
-  <button mat-button class="download" (click)="download()">Download</button>
+  <button mat-stroked-button class="download" (click)="download()">Download</button>
 </div>
