@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,8 @@ import { SiteFormComponent } from './components/site-form/site-form.component';
 import { EditComponent } from './components/edit/edit.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ErrorComponent } from './components/error/error.component';
+
+import { FileService } from './services/file.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,10 @@ import { ErrorComponent } from './components/error/error.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient, FileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

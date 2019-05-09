@@ -1,7 +1,11 @@
 <div class="site-form">
-  <mat-form-field appearance="standard">
+  <mat-form-field appearance="standard" class="w-80" *ngFor="let site of sites;let index = index;trackBy:trackByIndex;">
     <mat-label>Website address</mat-label>
-    <input matInput placeholder="http://wwww.google.com">
+    <input matInput placeholder="http://wwww.google.com" [(ngModel)]="sites[index]">
     <mat-hint>Enter a website address</mat-hint>
   </mat-form-field>
+  <div class="spinner-container center" *ngIf="saving">
+    <mat-spinner class="spinner"></mat-spinner>
+  </div>
+  <button mat-button class="download" (click)="download()">Download</button>
 </div>
